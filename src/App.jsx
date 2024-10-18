@@ -1,7 +1,15 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 
 function App() {
-  const [state,setState]=useState(0);
+  const [state, setState] = useState(() => {
+    const savedState = localStorage.getItem("count"); 
+    console.log(savedState);
+    return savedState? JSON.parse(savedState) : 0;
+  });
+  
+  useEffect(() => {
+    localStorage.setItem('count', JSON.stringify(state)); 
+  }, [state]);
   return (
     // <div style={{}}>
     <div style={{width:'100%',backgroundColor:'pink',marginLeft: '70%'}}>
