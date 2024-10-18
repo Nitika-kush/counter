@@ -29,7 +29,7 @@ function App() {
           setState(state-1);
         }
 
-      }}>decrease</button>
+      }}>decreasee</button>
     </div>
   )
 }
